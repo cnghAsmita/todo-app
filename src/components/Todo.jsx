@@ -1,4 +1,5 @@
 import {useState,} from 'react';
+import './index.css'
 
 
 function Todo(){
@@ -18,9 +19,11 @@ function Todo(){
 
    const onAdd = (event) =>{
        event.preventDefault();
-       setAllTask(prevState=>([inputTask, ...prevState]));
-       // reset input value
-       setInputTask('');
+       if(inputTask !== ''){
+           setAllTask(prevState=>([inputTask, ...prevState]));
+           // reset input value
+           setInputTask('');
+       }
    }
 
 
@@ -67,13 +70,15 @@ function Todo(){
 
 
    return (
-       <>
-           <h2>Todo App</h2>
+       <div className="todo-modal">
+           <h2 className="title-1">Todo App</h2>
 
 
            <form onSubmit={onAdd}>
-               <input placeholder="Add todo here" onChange={onInputChange} value={inputTask} />
-               <button type="submit">Add</button>
+               <input placeholder="Add todo here" onChange={onInputChange} value={inputTask}
+                   className='input-box'
+               />
+               <button type="submit" className="btn">Add</button>
            </form>
 
 
@@ -83,35 +88,30 @@ function Todo(){
            }
 
 
-           <ul>
+           <>
            {
                allTask.map((task, index)=>{
                    return (
-                   <li>
+                   <div className="task-div">
                        {
                            indexEditStatus?.[index] ?
-                           <>
-                               <form onSubmit={(event)=>onUpdateBtn(event, index)}>
-                                   <input value={updateInputValue} onChange={onUpdateInputChange}/>
-                                   <button>Update</button>
-                               </form>
-                               &nbsp; &nbsp;
-                           </>
+                           <form onSubmit={(event)=>onUpdateBtn(event, index)} className="update-form">
+                               <input value={updateInputValue} onChange={onUpdateInputChange} className='input-box' />
+                               <button className="btn">Update</button>
+                           </form>
                            :
-                           <>
-                               {task}
-                               &nbsp; &nbsp;
-                               <button onClick={()=>onEdit(index)}>Edit</button>
-                           </>
+                           <div className='task-with-edit-btn'>
+                               <>{task}</>
+                               <button onClick={()=>onEdit(index)} className="btn">Edit</button>
+                           </div>
                        }
-                       &nbsp; &nbsp;
-                       <button onClick={()=>onDelete(index)}>Delete</button>
-                   </li>
+                       <button onClick={()=>onDelete(index)} className="btn btn-del">Delete</button>
+                   </div>
                    )
                })
            }
-           </ul>
-       </>
+           </>
+       </div>
    );
 }
 

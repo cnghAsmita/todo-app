@@ -1,9 +1,11 @@
 import Todo from './components/Todo'
+import "./index.css"
 
 function App() {
   return (
-    <Todo />
-  );
+    <main>
+      <Todo />
+    </main>);
 }
 
 export default App;

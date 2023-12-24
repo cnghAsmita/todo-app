@@ -1,0 +1,70 @@
+.todo-modal{
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 550px;
+    margin: 90px auto;
+    background: white;
+    padding: 5px;
+    height: 510px;
+ }
+ 
+ 
+ .title-1{
+    text-align: center;
+    font-size: 2.8rem;
+    border-bottom: 1px solid gray;
+    margin-bottom: 10px;
+ }
+ 
+ 
+ .input-box{
+    height: 24px;
+    width: 380px;
+    padding: 2px 5px;
+    margin: 5px;
+ }
+ 
+ 
+ .btn{
+    height: 28px;
+    width: 50px;
+ }
+ 
+ 
+ .task-div{
+    border: 1px solid lightgray;
+    background: pink;
+ 
+ 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    margin-bottom: 10px;
+ }
+ 
+ 
+ 
+ 
+ .task-with-edit-btn{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+ }
+ 
+ 
+ .btn-del{
+    margin-left: 5px;
+ }
+ 
+ 
+ .update-form{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+ }
+ 
+ 
+ 
+ 
